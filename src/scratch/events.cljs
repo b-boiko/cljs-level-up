@@ -30,21 +30,25 @@
 ;; The initialize event will take the default db (supplied in scratch.db)
 ;;  and set the re-frame app-db value to it. 
 (reg-event-db
- ::initialize
- interceptors
- (fn [_ _]
-   default-db))
+  ::initialize
+  interceptors
+  (fn [_ _]
+    default-db))
+
+;; This event increments every number
+(reg-event-db
+  ::inc-all
+  interceptors
+  (fn [db _]
+    ;; Every reg-event-db must return an updated version of the app-db.
+    ;; For this event, we want to increment every number in :numbers.
+    ;; We can use (map ...) to perform a sequence comprehension on that data
+    ;; and increment every value using the inc function. Using update, we
+    ;; can provide the path in our db we wish to update.
+    (update db :numbers #(map inc %))))
 
 (reg-event-db
- ::inc-all
- interceptors
- (fn [db _]
-   ;; TODO: increment every number in the numbers field
-   db))
-
-(reg-event-db
- ::dec-all
- interceptors
- (fn [db _]
-   ;; TODO: decrement every number in the numbers field
-   db))
+  ::dec-all
+  interceptors
+  (fn [db _]
+    (update db :numbers #(map dec %))))

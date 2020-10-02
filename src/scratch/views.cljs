@@ -1,13 +1,13 @@
 (ns scratch.views
-  (:require [re-frame.core :refer [subscribe dispatch]]
-            [scratch.subs  :as subs]
-            [scratch.util  :refer [pad]]))
+  (:require [re-frame.core  :refer [subscribe dispatch]]
+            [scratch.subs   :as subs]
+            [scratch.events :as events]
+            [scratch.util   :refer [pad]]))
 
 (defn button
   [text on-click]
-  ;; TODO: create a button component that takes some text for a label
-  ;; and also accepts a click event
-  [:div])
+  [:button {:on-click on-click}
+   text])
 
 (defn card
   [& {:keys [title text body]}]
@@ -27,18 +27,26 @@
 
 (defn odd-numbers
   []
-  ;; TODO: This component should show every odd number from the collection
   (let [data @(subscribe [::subs/odd-numbers])]
     [card
      :title "Odd Numbers"
      :text  "This shows every odd number"
-     :body  "Replace this with the odd numbers from the number collection"]))
+     :body  (pad data)]))
+
+(defn even-numbers
+  []
+  (let [data @(subscribe [::subs/even-numbers])]
+    [card
+     :title "Even Numbers"
+     :text  "This shows every even number"
+     :body  (pad data)]))
 
 (defn app
   []
   [:div "Scratch App"
-   ;; TODO: create two buttons, that allow for incrementing and decrementing
+   [:div
+    [button "Increment" #(dispatch [::events/inc-all])]
+    [button "Decrement" #(dispatch [::events/dec-all])]]
    [all-numbers]
    [odd-numbers]
-   ;; TODO: create a new component that will show all the even numbers.
-   ])
+   [even-numbers]])
