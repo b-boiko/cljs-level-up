@@ -1,0 +1,32 @@
+.card {
+    border: #333333 1px solid;
+    width: fit-content;
+    margin: 1em;
+    border-radius: 10px;
+}
+
+.card > .header {
+    padding: 0.5em 2em;
+    border-bottom: #333333 1px solid;
+    margin: 0 0 1em 0;
+}
+
+.card > .header > .title {
+    font-weight: 900;
+    display: inline;
+    padding-right: 1em;
+}
+
+.card > .header > .title::after {
+    padding-left: 1em;
+    content: "-";
+}
+
+.card > .header > .text {
+    display: inline;
+}
+
+.card > .body {
+    padding: 0.5em 1em;
+    margin: 0 0 1em 0;
+}
