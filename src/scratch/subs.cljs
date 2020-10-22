@@ -1,6 +1,10 @@
 (ns scratch.subs
   (:require [re-frame.core :refer [reg-sub]]))
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Subs introduced in Stage 1
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;; This subscription will return the :numbers from our database.
 (reg-sub
  ::all-numbers
@@ -28,3 +32,47 @@
  :<- [::all-numbers]
  (fn [all-numbers _]
    (filter even? all-numbers)))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Subs introduced in Stage 2
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; This sub uses the clojure `first` function to get
+;; the first item in a sequence.
+(reg-sub
+ ::first-number
+ :<- [::all-numbers]
+ (fn [all-numbers _]
+   (first all-numbers)))
+
+;; This subscription uses another function to do the same thing, just with
+;; a little more work
+;; We use `get` to get the item in the 0th index, or first position.
+(reg-sub
+ ::my-first-number
+ :<- [::all-numbers]
+ (fn [all-numbers _]
+   (get all-numbers
+        0)))
+
+;; This sub uses the clojure `last` function to get
+;; the last item in a sequence.
+(reg-sub
+ ::last-number
+ :<- [::all-numbers]
+ (fn [all-numbers _]
+   (last all-numbers)))
+
+(reg-sub
+ ::second-number
+ :<- [::all-numbers]
+ (fn [all-numbers _]
+   (second all-numbers)))
+
+;; This sub uses the clojure `rest` function to get
+;; everything but the first item.
+(reg-sub
+ ::rest-numbers
+ :<- [::all-numbers]
+ (fn [all-numbers _]
+   (rest all-numbers)))
