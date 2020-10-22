@@ -66,29 +66,39 @@ All source code lives in `src/scratch` in `.cljs` files. The breakdown here is a
   * All of our view components.
 * `util.cljs`
   * Any functions that might be used in our views.
+* `common\`
+  * This is a directory that is used for common components throughout the app.
+  * I will not enumerate all of the components as this will grow over time.
+* `stages\`
+  * This is the directory that will try to partition all of the stages into their own namespaces.
+  * It'll be impossible to silo off every exercise, but for the most part, each stage will have it's own file.
   
 ### The Tasks
 
 For this stage, a default database, a simple view, and a subscription have already been implemented for you. Review the code and any TODOs within.
 
+Most notes have already been provided in line in the application and via comments, so please use that as a resource. This is just a concise list of the tasks.
+
+You will need to only focus on creating subscriptions and some view code for this. So all your work can be done in `subs.cljs` and `stages/stage_2.cljs`.
+
 The tasks for this stage are:
 
-#### Odd Numbers
+#### First
 
-Implement the `::odd-numbers` subscription in the `scratch.subs` ns, and add it to the `odd-numbers` view in `scratch.views`
+This one has already been completed to give some idea of the structure and directions to take.
 
-#### Even Numbers
+#### Last
 
-Implement the entire even numbers path, subscriptions and view. Use the odd numbers for inpiration and try to adhere to existing code conventions as much as possible.
+The first has already been implemented using `last` and your task is to create another sub that will provide the same result.
 
-#### Button
+#### Second
 
-In the `scratch.views` ns, make a generic HTML button (custom styling allowed if you want, there is a css stylesheet in the `resources/public/css` directory) that will accept some label, as well as an event that triggers when the button is clicked. Try to research this one if any issues arise.
+The first has already been implemented using `second` and your task is to create another sub that will provide the same result.
 
-#### Increment/decrement
+#### Rest
 
-Using the button reagent component you made above, make two instances of this, one that will increment every number in the db, and one that decrements everything.
+The first has already been implemented using `rest` and your task is to create another sub that will provide the same result.
 
+#### Extra Challenges
 
-
-
+There are five more exercises after that will require a bit of research, and some search query terms have been provided. The goal here is to get a bit more fluent with using clojure docs, stack overflow, and just plain old google searches to find solutions to Clojure problems. There is more than one way to solve all of these problems so don't feel constrained to use to provided hints.
