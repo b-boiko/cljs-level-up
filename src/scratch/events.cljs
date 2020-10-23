@@ -45,10 +45,10 @@
     ;; We can use (map ...) to perform a sequence comprehension on that data
     ;; and increment every value using the inc function. Using update, we
     ;; can provide the path in our db we wish to update.
-    (update db :numbers #(map inc %))))
+    (update db :numbers #(mapv inc %))))
 
 (reg-event-db
   ::dec-all
   interceptors
   (fn [db _]
-    (update db :numbers #(map dec %))))
+    (update db :numbers #(mapv dec %))))
