@@ -10,4 +10,4 @@
 
 ;; This will be the database value anytime that page loads into the browser.
 (def default-db
-  {:numbers (range 50)})
+  {:numbers (vec (range 50))})

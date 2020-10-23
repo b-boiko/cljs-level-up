@@ -77,8 +77,8 @@
 (defn my-even-numbers
   []
   [card
-   :title "My Odd Numbers"
-   :text  "This will show only the odd numbers using a custom function."
+   :title "My Even Numbers"
+   :text  "This will show only the even numbers using a custom function."
    :body  "TODO: Implement the subscription and body for this card without using `filter`. We can assume the numbers are in order and steadily increasing for this problem. If you need some ideas, try looking at `partition` or `take-nth` in the clojure docs, but don't feel limited to those."])
 
 (defn my-odd-numbers
