@@ -30,7 +30,7 @@
   [card
    :title "Custom Last Number"
    :text  "This shows the last number in a sequence using a custom function."
-   :body  "TODO: Implement the subscription and body for this card."])
+   :body  @(rf/subscribe [::subs/my-last-number])])
 
 (defn second-number
   []
@@ -44,7 +44,7 @@
   [card
    :title "Custom Second Number"
    :text  "This shows the second number in a sequence using a custom function."
-   :body  "TODO: Implement the subscription and body for this card. If you can, try to solve this using a different strategy than you used to solve the two previous exercises."])
+   :body  @(rf/subscribe [::subs/my-second-number])])
 
 (defn rest-numbers
   []
@@ -58,42 +58,42 @@
   [card
    :title "Custom Rest Numbers"
    :text  "This shows everything but the first number in a sequence using a custom function."
-   :body  "TODO: Implement the subscription and body for this card."])
+   :body  (pad @(rf/subscribe [::subs/my-rest-numbers]))])
 
 (defn first-10-numbers
   []
   [card
    :title "First 10 Numbers"
    :text  "This will show only the first 10 numbers"
-   :body  "TODO: Implement the subscription and body for this card. If you need a hint, try the following search query in your favorite search engine `clojure get first n items`."])
+   :body  (pad @(rf/subscribe [::subs/my-first-10-numbers]))])
 
 (defn last-10-numbers
   []
   [card
    :title "Last 10 Numbers"
    :text  "This will show only the last 10 numbers"
-   :body  "TODO: Implement the subscription and body for this card. If you need a hint, try a similar search query from the question above."])
+   :body  (pad @(rf/subscribe [::subs/my-last-10-numbers]))])
 
 (defn my-even-numbers
   []
   [card
    :title "My Even Numbers"
    :text  "This will show only the even numbers using a custom function."
-   :body  "TODO: Implement the subscription and body for this card without using `filter`. We can assume the numbers are in order and steadily increasing for this problem. If you need some ideas, try looking at `partition` or `take-nth` in the clojure docs, but don't feel limited to those."])
+   :body  (pad @(rf/subscribe [::subs/my-even-numbers]))])
 
 (defn my-odd-numbers
   []
   [card
    :title "My Odd Numbers"
    :text  "This will show only the odd numbers using a custom function."
-   :body  "TODO: Implement the subscription and body for this card without using `filter`. We can assume the numbers are in order and steadily increasing for this problem. If you need some ideas, try looking at `partition` or `take-nth` in the clojure docs, but don't feel limited to those."])
+   :body  (pad @(rf/subscribe [::subs/my-odd-numbers]))])
 
 (defn single-digit-numbers
   []
   [card
    :title "Single Digit Numbers"
    :text  "This will show only the single digit numbers using a custom function."
-   :body  "TODO: Implement the subscription and body for this card. Another way to think of a single digit number is any number under 10. If you need a hint, try this search query in your favorite search engine `clojure get items and stop`."])
+   :body  (pad @(rf/subscribe [::subs/my-single-numbers]))])
 
 (defn stage
   []
