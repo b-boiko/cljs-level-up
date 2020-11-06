@@ -79,26 +79,10 @@ For this stage, a default database, a simple view, and a subscription have alrea
 
 Most notes have already been provided in line in the application and via comments, so please use that as a resource. This is just a concise list of the tasks.
 
-You will need to only focus on creating subscriptions and some view code for this. So all your work can be done in `subs.cljs` and `stages/stage_2.cljs`.
+You will need to only focus on adding to the already started spec, so the work is all in `db.cljs`.
 
 The tasks for this stage are:
 
-#### First
+#### Spec
 
-This one has already been completed to give some idea of the structure and directions to take.
-
-#### Last
-
-The first has already been implemented using `last` and your task is to create another sub that will provide the same result.
-
-#### Second
-
-The first has already been implemented using `second` and your task is to create another sub that will provide the same result.
-
-#### Rest
-
-The first has already been implemented using `rest` and your task is to create another sub that will provide the same result.
-
-#### Extra Challenges
-
-There are five more exercises after that will require a bit of research, and some search query terms have been provided. The goal here is to get a bit more fluent with using clojure docs, stack overflow, and just plain old google searches to find solutions to Clojure problems. There is more than one way to solve all of these problems so don't feel constrained to use to provided hints.
+A `data` key has been added to the db and it contains `movies` and `users`. Add to the current spec to provide coverage for this data.
